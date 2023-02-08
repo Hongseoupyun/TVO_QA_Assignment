@@ -3,14 +3,16 @@
 // Test Case 3: Verify the responsive design of the page on different screen sizes, including mobile, tablet, and desktop. (Mobile, Visual)
 
 describe("Verify Navigation", () => {
-  it("the page is loaded properly and the URL is correct", () => {
+  beforeEach(() => {
     cy.visit("https://www.tvo.org/series-docs/browse/categories/all");
+  });
+  it("the page is loaded properly and the URL is correct", () => {
     cy.url().should("include", "/series-docs/browse/categories/all");
   });
 
   it("the page has all the necessary elements, including header, footer, categories menu bar", () => {
-    cy.get("header").should("be.visible");
-    cy.get("footer").should("be.visible");
+    cy.get("#header").should("be.visible");
+    cy.get("#footer").should("be.visible");
     cy.get(".categories").should("be.visible");
   });
 
