@@ -6,6 +6,7 @@ describe("Verify Navigation", () => {
   beforeEach(() => {
     cy.visit("https://www.tvo.org/series-docs/browse/categories/all");
   });
+
   it("the page is loaded properly and the URL is correct", () => {
     cy.url().should("include", "/series-docs/browse/categories/all");
   });

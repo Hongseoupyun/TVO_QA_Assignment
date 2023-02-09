@@ -9,6 +9,7 @@ describe("Verify Search Functionality", () => {
     cy.get(".search-button").click();
     cy.url().should("include", "/search");
   });
+
   it("the user is able to type to search for specific content and the results are displayed correctly", () => {
     cy.get(".search-input").type("Canada");
     cy.get(".search-input").type("{enter}");
@@ -16,6 +17,7 @@ describe("Verify Search Functionality", () => {
     cy.get(".search-results").should("be.visible");
     cy.get(".search-results").should("have.length.greaterThan", 1);
   });
+  
   it("displays the correct error message when there is no search results", () => {
     cy.get(".search-input").type("asflnadv");
     cy.get(".search-input").type("{enter}");

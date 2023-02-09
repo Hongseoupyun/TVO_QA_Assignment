@@ -9,10 +9,12 @@ describe("Verify Footer", () => {
     cy.visit("https://www.tvo.org/series-docs/browse/categories/all");
     cy.get("#footer").should("be.visible");
   });
+  
   it("the footer contains all the necessary elements, such as links to important pages and social media icons", () => {
     cy.get("#footer .links").should("be.visible");
     cy.get("#footer .social-media").should("be.visible");
   });
+
   it("the links in the footer redirect to the correct page", () => {
     cy.get("#footer .links a").each(($el) => {
       const href = $el.prop("href");
@@ -20,6 +22,7 @@ describe("Verify Footer", () => {
       cy.url().should("eq", href);
     });
   });
+  
   it("the social media icons are functional and redirect to the correct social media page", () => {
     cy.get("#footer .social-media a").each(($el) => {
       const href = $el.prop("href");
